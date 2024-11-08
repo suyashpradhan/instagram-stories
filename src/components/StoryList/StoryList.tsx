@@ -1,5 +1,6 @@
 import React from "react";
-import "./StoryList.module.css"
+// @ts-ignore
+import styles from "./StoryList.module.css"
 
 interface StoryListProps {
     stories: any[];
@@ -8,14 +9,14 @@ interface StoryListProps {
 
 const StoryList = ({stories, onSelectStory}: StoryListProps) => {
     return (
-        <div className="story-list">
+        <div className={styles.storyList}>
             {stories?.map((story, index) => (
                 <img
                     key={story.id}
                     src={story.imageUrl}
                     alt={`Story ${story.id}`}
                     onClick={() => onSelectStory(index)}
-                    className="story-thumbnail"
+                    className={styles.storyThumbnail}
                 />
             ))}
         </div>

@@ -1,26 +1,26 @@
 [
   {
     "id": "1",
-    "imageUrl": "https://placehold.co/300x600/white/FFF?text=Story+1"
+    "imageUrl": "https://placehold.co/300x600/green/FFF?text=Story+1"
   },
   {
     "id": "2",
-    "imageUrl": "https://placehold.co/300x600/red/FFF?Story+2"
+    "imageUrl": "https://placehold.co/300x600/red/FFF?text=Story+2"
   },
   {
     "id": "3",
-    "imageUrl": "https://placehold.co/300x600/orange/FFF?Story+3"
+    "imageUrl": "https://placehold.co/300x600/orange/FFF?text=Story+3"
   },
   {
     "id": "4",
-    "imageUrl": "https://placehold.co/300x600/purple/FFF?Story+4"
+    "imageUrl": "https://placehold.co/300x600/purple/FFF?text=Story+4"
   },
   {
     "id": "5",
-    "imageUrl": "https://placehold.co/300x600/gray/FFF?Story+5"
+    "imageUrl": "https://placehold.co/300x600/gray/FFF?text=Story+5"
   },
   {
     "id": "6",
-    "imageUrl": "https://placehold.co/300x600/pink/FFF?Story+6"
+    "imageUrl": "https://placehold.co/300x600/pink/FFF?text=Story+6"
   }
 ]

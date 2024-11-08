@@ -1,8 +1,9 @@
 import React from 'react';
-import './LoadingSpinner.module.css';
+// @ts-ignore
+import styles from "./LoadingSpinner.module.css"
 
 const LoadingSpinner: React.FC = () => {
-    return <div className="loader">Loading...</div>;
+    return <div className={styles.loader}>Loading...</div>;
 };
 
 export default LoadingSpinner;

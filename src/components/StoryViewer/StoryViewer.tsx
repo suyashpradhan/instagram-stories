@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
-import './StoryViewer.module.css';
+// @ts-ignore
+import styles from "./StoryViewer.module.css"
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 interface Props {
@@ -62,13 +63,13 @@ const StoryViewer: React.FC<Props> = ({stories, initialIndex, onClose}) => {
     };
 
     return (
-        <div className="story-viewer" onClick={handleTap}>
+        <div className={styles.storyViewer} onClick={handleTap}>
             {loading && <LoadingSpinner/>}
             <img
                 src={stories?.[currentIndex].imageUrl}
                 alt={`Story ${stories?.[currentIndex].id}`}
                 onLoad={handleImageLoad}
-                className={`story-image ${loading ? 'hidden' : 'visible'}`}
+                className={`${styles.storyImage} ${loading ? 'hidden' : 'visible'}`}
             />
         </div>
     );
