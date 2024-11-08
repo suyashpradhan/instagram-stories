@@ -1,39 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import StoryViewer from "./components/StoryViewer/StoryViewer";
-import StoryList from "./components/StoryList/StoryList";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-    const [stories, setStories] = useState<any>();
-    const [selectedStoryIndex, setSelectedStoryIndex] = useState<number | null>(
-        null
-    );
-
-    useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/data/stories.json`)
-            .then((response) => response.json())
-            .then((data) => setStories(data));
-    }, []);
-
-    const handleSelectStory = (index: number) => {
-        setSelectedStoryIndex(index);
-    };
-
-    const handleCloseViewer = () => {
-        setSelectedStoryIndex(null);
-    };
-
-    return (
-        <div className="app">
-            <StoryList stories={stories} onSelectStory={handleSelectStory}/>
-            {selectedStoryIndex !== null && (
-                <StoryViewer
-                    stories={stories}
-                    initialIndex={selectedStoryIndex}
-                    onClose={handleCloseViewer}
-                />
-            )}
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
