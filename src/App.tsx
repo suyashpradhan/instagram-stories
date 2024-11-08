@@ -24,6 +24,7 @@ function App() {
 
     return (
         <div className="app">
+            <h1 className="title">StageGram</h1>
             <StoryList stories={stories} onSelectStory={handleSelectStory}/>
             {selectedStoryIndex !== null && (
                 <StoryViewer

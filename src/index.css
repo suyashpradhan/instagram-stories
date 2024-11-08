@@ -5,10 +5,23 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    background-color: black;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 1rem;
+    border-bottom: 1px solid #474747;
+    padding-bottom: .5rem;
+    color: white;
 }
 
 .app {
     overflow: hidden;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .story-image {

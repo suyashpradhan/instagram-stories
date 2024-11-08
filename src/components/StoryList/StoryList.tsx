@@ -11,13 +11,16 @@ const StoryList = ({stories, onSelectStory}: StoryListProps) => {
     return (
         <div className={styles.storyList}>
             {stories?.map((story, index) => (
-                <img
-                    key={story.id}
-                    src={story.imageUrl}
-                    alt={`Story ${story.id}`}
-                    onClick={() => onSelectStory(index)}
-                    className={styles.storyThumbnail}
-                />
+                <div key={story.id} className={styles.storyContainer}>
+                    <img
+
+                        src={story.imageUrl}
+                        alt={`Story ${story.id}`}
+                        onClick={() => onSelectStory(index)}
+                        className={styles.storyThumbnail}
+                    />
+                    <h1 className={styles.storyTitle}>{story?.name}</h1>
+                </div>
             ))}
         </div>
     )

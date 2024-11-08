@@ -1,26 +1,32 @@
 [
   {
     "id": "1",
-    "imageUrl": "https://placehold.co/300x600/green/FFF?text=Story+1"
+    "imageUrl": "https://placehold.co/300x600/green/FFF?text=Story+1",
+    "name": "John Doe"
   },
   {
     "id": "2",
-    "imageUrl": "https://placehold.co/300x600/red/FFF?text=Story+2"
+    "imageUrl": "https://placehold.co/300x600/red/FFF?text=Story+2",
+    "name": "Steve Smith"
   },
   {
     "id": "3",
-    "imageUrl": "https://placehold.co/300x600/orange/FFF?text=Story+3"
+    "imageUrl": "https://placehold.co/300x600/orange/FFF?text=Story+3",
+    "name": "Suyash Pradhan"
   },
   {
     "id": "4",
-    "imageUrl": "https://placehold.co/300x600/purple/FFF?text=Story+4"
+    "imageUrl": "https://placehold.co/300x600/purple/FFF?text=Story+4",
+    "name": "Karan Varma"
   },
   {
     "id": "5",
-    "imageUrl": "https://placehold.co/300x600/gray/FFF?text=Story+5"
+    "imageUrl": "https://placehold.co/300x600/gray/FFF?text=Story+5",
+    "name": "Virat Kohli"
   },
   {
     "id": "6",
-    "imageUrl": "https://placehold.co/300x600/pink/FFF?text=Story+6"
+    "imageUrl": "https://placehold.co/300x600/pink/FFF?text=Story+6",
+    "name": "Rohit Sharma"
   }
 ]
