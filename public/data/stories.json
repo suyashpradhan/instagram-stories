@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "https://placehold.co/300x600/white/FFF?text=Story+1"
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://placehold.co/300x600/red/FFF?Story+2"
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://placehold.co/300x600/orange/FFF?Story+3"
+  },
+  {
+    "id": "4",
+    "imageUrl": "https://placehold.co/300x600/purple/FFF?Story+4"
+  },
+  {
+    "id": "5",
+    "imageUrl": "https://placehold.co/300x600/gray/FFF?Story+5"
+  },
+  {
+    "id": "6",
+    "imageUrl": "https://placehold.co/300x600/pink/FFF?Story+6"
+  }
+]
