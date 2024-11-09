@@ -1,5 +1,4 @@
 import React from "react";
-// @ts-ignore
 import styles from "./StoryList.module.css"
 import {Story} from "../../types/story";
 

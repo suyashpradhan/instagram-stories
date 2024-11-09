@@ -1,5 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
-// @ts-ignore
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import styles from './StoryViewer.module.css';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import {Story} from "../../types/story";
@@ -22,51 +21,51 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
         clearTimer();
     }, [currentIndex]);
 
-    useEffect(() => {
-        if (!loading) {
-            startTimer();
-        } else {
-            clearTimer();
-        }
-    }, [loading]);
-
-    const startTimer = () => {
-        clearTimer();
-        const startTime = Date.now();
-        const totalDuration = 5000; // 5 seconds
-
-        timerRef.current = setInterval(() => {
-            const elapsed = Date.now() - startTime;
-            const newProgress = (elapsed / totalDuration) * 100;
-
-            if (newProgress >= 100) {
-                clearTimer();
-                setProgress(100);
-                goToNextStory();
-            } else {
-                setProgress(newProgress);
-            }
-        }, 50); // Update every 50ms
-    };
-
-    const clearTimer = () => {
-        if (timerRef.current) {
-            clearInterval(timerRef.current);
-            timerRef.current = null;
-        }
-    };
-
-    const goToNextStory = () => {
+    const goToNextStory = useCallback(() => {
         if (currentIndex < stories.length - 1) {
             setCurrentIndex(currentIndex + 1);
         } else {
             onClose();
         }
-    };
+    }, [currentIndex, stories.length, onClose]);
 
     const goToPreviousStory = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
+        }
+    };
+
+    useEffect(() => {
+        const startTimer = () => {
+            clearTimer();
+            const startTime = Date.now();
+            const totalDuration = 5000; // 5 seconds
+
+            timerRef.current = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                const newProgress = (elapsed / totalDuration) * 100;
+
+                if (newProgress >= 100) {
+                    clearTimer();
+                    setProgress(100);
+                    goToNextStory();
+                } else {
+                    setProgress(newProgress);
+                }
+            }, 50); // Update every 50ms
+        };
+
+        if (!loading) {
+            startTimer();
+        } else {
+            clearTimer();
+        }
+    }, [loading, goToNextStory]);
+
+    const clearTimer = () => {
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+            timerRef.current = null;
         }
     };
 

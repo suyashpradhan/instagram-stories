@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import StoryViewer from "./components/StoryViewer/StoryViewer";
 import StoryList from "./components/StoryList/StoryList";
+import {Story} from "./types/story";
 
 function App() {
-    const [stories, setStories] = useState<any>();
+    const [stories, setStories] = useState<Story[]>([]);
     const [selectedStoryIndex, setSelectedStoryIndex] = useState<number | null>(
         null
     );
