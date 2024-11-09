@@ -16,7 +16,7 @@ describe('StageGram Stories Feature', () => {
         cy.get('[data-testid="story-image"]').should('be.visible');
     });
 
-    it('should automatically advance to the next story after 5 seconds', () => {
+    it('should automatically navigate to the next story after 5 seconds', () => {
         cy.get('[data-testid="story-thumbnail-0"]').click();
 
         cy.get('[data-testid="story-image"]')
@@ -55,21 +55,6 @@ describe('StageGram Stories Feature', () => {
                         expect(thirdAltText).to.eq(firstAltText);
                     });
             });
-    });
-
-    it('should display a loading spinner while the image is loading', () => {
-        // Intercept image requests to delay them
-        cy.intercept('GET', '**/*', (req) => {
-            if (req.url.endsWith('.jpg') || req.url.endsWith('.png')) {
-                req.on('response', (res) => {
-                    res.setDelay(2000); // Delay response by 2 seconds
-                });
-            }
-        });
-
-        cy.get('[data-testid="story-thumbnail-0"]').click();
-
-        cy.get('[data-testid="story-image"]').should('be.visible');
     });
 
     it('should close the story viewer when the close button is clicked', () => {

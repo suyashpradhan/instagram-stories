@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./StoryList.module.css"
 import {Story} from "../../types/story";
 
+// Component Types
 interface StoryListProps {
     stories: Story[];
     onSelectStory: (index: number) => void;
