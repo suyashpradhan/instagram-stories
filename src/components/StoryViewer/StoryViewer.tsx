@@ -1,41 +1,63 @@
 import React, {useEffect, useRef, useState} from 'react';
 // @ts-ignore
-import styles from "./StoryViewer.module.css"
+import styles from './StoryViewer.module.css';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import {Story} from "../../types/story";
 
-interface Props {
-    stories?: any[];
+interface StoryViewerProps {
+    stories: Story[];
     initialIndex: number;
     onClose: () => void;
 }
 
-const StoryViewer: React.FC<Props> = ({stories, initialIndex, onClose}) => {
+const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
     const [loading, setLoading] = useState(true);
+    const [progress, setProgress] = useState(0);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        startTimer();
-        return () => {
-            clearTimer();
-        };
+        setProgress(0);
+        setLoading(true);
+        clearTimer();
     }, [currentIndex]);
+
+    useEffect(() => {
+        if (!loading) {
+            startTimer();
+        } else {
+            clearTimer();
+        }
+    }, [loading]);
 
     const startTimer = () => {
         clearTimer();
-        timerRef.current = setTimeout(() => {
-            goToNextStory();
-        }, 5000);
+        const startTime = Date.now();
+        const totalDuration = 5000; // 5 seconds
+
+        timerRef.current = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            const newProgress = (elapsed / totalDuration) * 100;
+
+            if (newProgress >= 100) {
+                clearTimer();
+                setProgress(100);
+                goToNextStory();
+            } else {
+                setProgress(newProgress);
+            }
+        }, 50); // Update every 50ms
     };
 
     const clearTimer = () => {
         if (timerRef.current) {
-            clearTimeout(timerRef.current);
+            clearInterval(timerRef.current);
+            timerRef.current = null;
         }
     };
 
     const goToNextStory = () => {
-        if (currentIndex < stories!.length - 1) {
+        if (currentIndex < stories.length - 1) {
             setCurrentIndex(currentIndex + 1);
         } else {
             onClose();
@@ -53,24 +75,56 @@ const StoryViewer: React.FC<Props> = ({stories, initialIndex, onClose}) => {
     };
 
     const handleTap = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        event.stopPropagation();
+
         const {clientX} = event;
-        const middle = window.innerWidth / 2;
-        if (clientX < middle) {
+        const {left, right} = event.currentTarget.getBoundingClientRect();
+        const width = right - left;
+
+        const leftZoneEnd = left + width * 0.25;
+        const rightZoneStart = right - width * 0.25;
+
+        if (clientX < leftZoneEnd) {
             goToPreviousStory();
-        } else {
+        } else if (clientX > rightZoneStart) {
             goToNextStory();
         }
     };
 
+
     return (
-        <div className={styles.storyViewer} onClick={handleTap}>
+        <div className={styles.storyViewerContainer}>
             {loading && <LoadingSpinner/>}
-            <img
-                src={stories?.[currentIndex].imageUrl}
-                alt={`Story ${stories?.[currentIndex].id}`}
-                onLoad={handleImageLoad}
-                className={`${styles.storyImage} ${loading ? 'hidden' : 'visible'}`}
-            />
+            <div className={styles.storyViewer}>
+                {!loading && (
+                    <div className={styles.progressBarContainer}>
+                        <div
+                            className={styles.progressBar}
+                            style={{width: `${progress}%`}}
+                        />
+                    </div>
+                )}
+                <div className={styles.storyHeader}>
+                    <img
+                        className={styles.storyUserAvatar}
+                        src={stories[currentIndex].user_info?.avatar}
+                        alt={`Avatar-${stories[currentIndex].user_info?.user_name}`}
+                    />
+                    <h1 className={styles.storyUserName}>{stories[currentIndex]?.user_info?.user_name}</h1>
+                </div>
+                <div className={styles.imageContainer} onClick={handleTap}>
+                    <img
+                        src={stories[currentIndex].imageUrl}
+                        alt={`Story ${stories[currentIndex].id}`}
+                        onLoad={handleImageLoad}
+                        className={`${styles.storyImage} ${loading ? 'hidden' : 'visible'}`}
+                    />
+                </div>
+                <div className={styles.overlay}></div>
+            </div>
+            <button type="button" className={styles.closeIcon} onClick={() => onClose()}>
+                X
+            </button>
         </div>
     );
 };
