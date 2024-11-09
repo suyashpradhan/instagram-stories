@@ -13,7 +13,7 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
     const [loading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const timerRef = useRef<number | null>(null);
 
     useEffect(() => {
         setProgress(0);
@@ -92,14 +92,15 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
 
 
     return (
-        <div className={styles.storyViewerContainer}>
-            {loading && <LoadingSpinner/>}
+        <div className={styles.storyViewerContainer} data-testid="story-viewer">
+            {loading && <LoadingSpinner data-testid="loading-spinner"/>}
             <div className={styles.storyViewer}>
                 {!loading && (
-                    <div className={styles.progressBarContainer}>
+                    <div className={styles.progressBarContainer} data-testid="progress-bar">
                         <div
                             className={styles.progressBar}
                             style={{width: `${progress}%`}}
+
                         />
                     </div>
                 )}
@@ -111,17 +112,18 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
                     />
                     <h1 className={styles.storyUserName}>{stories[currentIndex]?.user_info?.user_name}</h1>
                 </div>
-                <div className={styles.imageContainer} onClick={handleTap}>
+                <div className={styles.imageContainer} onClick={handleTap} data-testid="image-container">
                     <img
                         src={stories[currentIndex].imageUrl}
                         alt={`Story ${stories[currentIndex].id}`}
                         onLoad={handleImageLoad}
                         className={`${styles.storyImage} ${loading ? 'hidden' : 'visible'}`}
+                        data-testid="story-image"
                     />
                 </div>
                 <div className={styles.overlay}></div>
             </div>
-            <button type="button" className={styles.closeIcon} onClick={() => onClose()}>
+            <button type="button" className={styles.closeIcon} onClick={() => onClose()} data-testid="close-button">
                 X
             </button>
         </div>

@@ -9,9 +9,10 @@ interface StoryListProps {
 
 const StoryList = ({stories, onSelectStory}: StoryListProps) => {
     return (
-        <div className={styles.storyList}>
+        <div className={styles.storyList} data-testid="story-list">
             {stories?.map((story, index) => (
-                <div onClick={() => onSelectStory(index)} key={story.id} className={styles.storyContainer}>
+                <div onClick={() => onSelectStory(index)} key={story.id} className={styles.storyContainer}
+                     data-testid={`story-thumbnail-${index}`}>
                     <img
                         src={story.imageUrl}
                         alt={story?.image_description}

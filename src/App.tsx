@@ -10,7 +10,7 @@ function App() {
     );
 
     useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/data/stories.json`)
+        fetch(`/data/stories.json`)
             .then((response) => response.json())
             .then((data) => setStories(data));
     }, []);

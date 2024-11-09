@@ -30,5 +30,6 @@
     margin-right: 16px;
     object-fit: cover;
     cursor: pointer;
+    padding: .2rem;
+    border: 2px solid #FF2847;
 }
-
