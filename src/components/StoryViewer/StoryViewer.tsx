@@ -100,15 +100,12 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
         <div className={styles.storyViewerContainer} data-testid="story-viewer">
             {/* Story Header Section (Includes Progress Bar, Title and Avatar */}
             <div className={styles.storyViewer}>
-                {!loading && (
-                    <div className={styles.progressBarContainer} data-testid="progress-bar">
-                        <div
-                            className={styles.progressBar}
-                            style={{width: `${progress}%`}}
-
-                        />
-                    </div>
-                )}
+                <div className={styles.progressBarContainer} data-testid="progress-bar">
+                    <div
+                        className={styles.progressBar}
+                        style={{width: `${progress}%`}}
+                    />
+                </div>
                 <div className={styles.storyHeader}>
                     <img
                         className={styles.storyUserAvatar}
@@ -125,6 +122,7 @@ const StoryViewer = ({stories, initialIndex, onClose}: StoryViewerProps) => {
                         alt={`Story ${stories[currentIndex].id}`}
                         className={`${styles.storyImage} ${loading ? 'hidden' : 'visible'}`}
                         data-testid="story-image"
+                        onLoad={() => setLoading(false)}
                     />
                 </div>
                 <div className={styles.overlay}></div>
