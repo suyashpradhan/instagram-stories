@@ -1,0 +1,110 @@
+.storyViewerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storyViewer {
+    width: 100%;
+}
+
+.storyImage {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0)
+    );
+}
+
+.progressBarContainer {
+    position: absolute;
+    pointer-events: none;
+    z-index: 99;
+    top: 20px;
+    left: 10px;
+    right: 4px;
+    width: 94%;
+    height: 2px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progressBar {
+    height: 100%;
+    pointer-events: none;
+    background-color: white;
+    transition: width ease-in;
+}
+
+.storyHeader {
+    position: absolute;
+    pointer-events: none;
+    z-index: 99;
+    top: 36px;
+    left: 10px;
+    display: flex;
+    justify-content: start;
+    gap: .6rem;
+    align-items: center;
+    background: transparent;
+}
+
+.storyUserName {
+    color: white;
+    pointer-events: none;
+    font-size: 1rem;
+    font-weight: 400;
+    background: transparent;
+}
+
+.storyUserAvatar {
+    height: 2rem;
+    pointer-events: none;
+    width: 2rem;
+    background: transparent;
+}
+
+.closeIcon {
+    background: transparent;
+    position: absolute;
+    right: 18px;
+    top: 40px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}

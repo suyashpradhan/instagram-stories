@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "https://placehold.co/100x600/brown/FFF?text=Story+1",
+    "image_description": "Image One",
+    "user_info": {
+      "user_name": "Virat Kohli",
+      "avatar": "https://avatar.iran.liara.run/username?username=Virat+Kohli"
+    }
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://placehold.co/100x600/red/FFF?text=Story+2",
+    "image_description": "Image Two",
+    "user_info": {
+      "user_name": "Cristiano Ronaldo",
+      "avatar": "https://avatar.iran.liara.run/username?username=Cristiano+Ronaldo"
+    }
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://placehold.co/100x600/orange/FFF?text=Story+3",
+    "image_description": "Image Three",
+    "user_info": {
+      "user_name": "Sachin Tendulkar",
+      "avatar": "https://avatar.iran.liara.run/username?username=Sachin+Tendulkar"
+    }
+  },
+  {
+    "id": "4",
+    "imageUrl": "https://placehold.co/100x600/purple/FFF?text=Story+4",
+    "image_description": "Image Four",
+    "user_info": {
+      "user_name": "Lebron James",
+      "avatar": "https://avatar.iran.liara.run/username?username=Lebron+James"
+    }
+  },
+  {
+    "id": "5",
+    "imageUrl": "https://placehold.co/100x600/gray/FFF?text=Story+5",
+    "image_description": "Image Five",
+    "user_info": {
+      "user_name": "Mahendra Singh Dhoni",
+      "avatar": "https://avatar.iran.liara.run/username?username=MS+Dhoni"
+    }
+  },
+  {
+    "id": "6",
+    "imageUrl": "https://placehold.co/100x600/pink/FFF?text=Story+6",
+    "image_description": "Image Six",
+    "user_info": {
+      "user_name": "Rohit Sharma",
+      "avatar": "https://avatar.iran.liara.run/username?username=Rohit+Sharma"
+    }
+  },
+  {
+    "id": "7",
+    "imageUrl": "https://placehold.co/100x600/cyan/FFF?text=Story+7",
+    "image_description": "Image Seven",
+    "user_info": {
+      "user_name": "Michael Phelps",
+      "avatar": "https://avatar.iran.liara.run/username?username=Michael+Phelps"
+    }
+  },
+  {
+    "id": "8",
+    "imageUrl": "https://placehold.co/100x600/darkgreen/FFF?text=Story+8",
+    "image_description": "Image Eight",
+    "user_info": {
+      "user_name": "Lionel Messi",
+      "avatar": "https://avatar.iran.liara.run/username?username=Lionel+Messi"
+    }
+  },
+  {
+    "id": "9",
+    "imageUrl": "https://placehold.co/100x600/magenta/FFF?text=Story+9",
+    "image_description": "Image Nine",
+    "user_info": {
+      "user_name": "Roger Federer",
+      "avatar": "https://avatar.iran.liara.run/username?username=Roger+Federer"
+    }
+  },
+  {
+    "id": "10",
+    "imageUrl": "https://placehold.co/100x600/babypink/FFF?text=Story+10",
+    "image_description": "Image Ten",
+    "user_info": {
+      "user_name": "Rafael Nadal",
+      "avatar": "https://avatar.iran.liara.run/username?username=Rafael+Nadal"
+    }
+  }
+]
